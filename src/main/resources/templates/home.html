@@ -129,40 +129,40 @@
 			    minD.sort(function(a, b) {
 	    			return b.date - a.date;
 				});
-	    	}
-	    	if(maxData != 'null'){
-			    for (var i in maxData) {
-		        	maxData[i].date = parseDate(maxData[i].date);
-		        	
-			        maxData[i].value = (+(maxData[i].value))/10;
-			    }	
-			    var maxD = removeDuplicate(maxData, 'date');
-			    maxD.sort(function(a, b) {
-	    			return b.date - a.date;
-				});
-	    	}
-	    	if(snowData != 'null'){
-			    for (var i in snowData) {
-		        	snowData[i].date = parseDate(snowData[i].date);
-		        	
-			        snowData[i].value = +(snowData[i].value);
-			    }	
-			    var snowD = removeDuplicate(snowData, 'date');
-			    snowD.sort(function(a, b) {
-	    			return b.date - a.date;
-				});
-	    	}
-	    	if(precipData != 'null'){
-			    for (var i in precipData) {
-		        	precipData[i].date = parseDate(precipData[i].date);
-		        	
-			        precipData[i].value = (+(precipData[i].value))/10;
-			    }	
-			    var precipD = removeDuplicate(precipData, 'date');
-			    precipD.sort(function(a, b) {
-	    			return b.date - a.date;
-				});
-	    	}
+	    		}
+			if(maxData != 'null'){
+				    for (var i in maxData) {
+					maxData[i].date = parseDate(maxData[i].date);
+
+					maxData[i].value = (+(maxData[i].value))/10;
+				    }	
+				    var maxD = removeDuplicate(maxData, 'date');
+				    maxD.sort(function(a, b) {
+					return b.date - a.date;
+					});
+			}
+			if(snowData != 'null'){
+				    for (var i in snowData) {
+					snowData[i].date = parseDate(snowData[i].date);
+
+					snowData[i].value = +(snowData[i].value);
+				    }	
+				    var snowD = removeDuplicate(snowData, 'date');
+				    snowD.sort(function(a, b) {
+					return b.date - a.date;
+					});
+			}
+			if(precipData != 'null'){
+				    for (var i in precipData) {
+					precipData[i].date = parseDate(precipData[i].date);
+
+					precipData[i].value = (+(precipData[i].value))/10;
+				    }	
+				    var precipD = removeDuplicate(precipData, 'date');
+				    precipD.sort(function(a, b) {
+					return b.date - a.date;
+					});
+			}
 
 			if(minData != 'null' || maxData != 'null' || snowData != 'null' || precipData != 'null'){
 				// append the svg obgect to the body of the page
