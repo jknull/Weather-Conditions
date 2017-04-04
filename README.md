@@ -6,4 +6,4 @@ stormdb
 
 Collection Names: 
 areas
-storm_events
+weather_conditions
