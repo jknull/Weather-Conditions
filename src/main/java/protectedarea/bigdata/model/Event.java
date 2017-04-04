@@ -2,72 +2,51 @@ package protectedarea.bigdata.model;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "storm_events")
+@Document(collection = "weather_conditions")
 public class Event {
 
-	private String EVENT_ID;
-	private String EVENT_TYPE;
-	private String BEGIN_DATE_TIME;
-	private String DAMAGE_PROPERTY;
-	private String EPISODE_NARRATIVE;
-	private String EVENT_NARRATIVE;
-	private String STATE;
-	private float BEGIN_LAT;
-	private float BEGIN_LON;
+	private String stationid;
+	private String date;
+	private String value;
+	private float lat;
+	private float lon;
+	private String type;
 	
-    public String getEVENTID() {
-		return EVENT_ID;
+    public String getStationID() {
+		return stationid;
 	}
-	public void setEVENTID(String eventId) {
-		EVENT_ID = eventId;
+	public void setStationID(String id) {
+		stationid = id;
 	}
-	public String getTYPE() {
-		return EVENT_TYPE;
+	public String getDate() {
+		return date;
 	}
-	public void setTYPE(String type) {
-		EVENT_TYPE = type;
+	public void setDate(String d) {
+		date = d;
 	}
-	public String getDATE(){
-		return BEGIN_DATE_TIME;
+	public String getValue(){
+		return value;
 	}	
-	public void setDATE(String date){
-		BEGIN_DATE_TIME = date;
+	public void setValue(String v){
+		value = v;
 	}
-	public String getDAMAGEPROPERTY() {
-		return DAMAGE_PROPERTY;
+	public String getType() {
+		return type;
 	}
-	public void setDAMAGECOST(String damageProperty) {
-		DAMAGE_PROPERTY = damageProperty;
+	public void setType(String t) {
+		type = t;
 	}
-	public String getEPISODENARRATIVE(){
-		return EPISODE_NARRATIVE;
+	public float getLat(){
+		return lat;
 	}
-	public void setEPISODENARRATIVE(String episodeNarrative){
-		EPISODE_NARRATIVE = episodeNarrative;
+	public void setLat(float l){
+		lat = l;
 	}
-	public String getEVENTNARRATIVE(){
-		return EVENT_NARRATIVE;
+	public float getLon(){
+		return lon;
 	}
-	public void setEVENTNARRATIVE(String eventNarrative){
-		EVENT_NARRATIVE = eventNarrative;
-	}
-	public String getSTATE(){
-		return STATE;
-	}
-	public void setSTATE(String state){
-		STATE = state;
-	}
-	public float getLAT(){
-		return BEGIN_LAT;
-	}
-	public void setLAT(float lat){
-		BEGIN_LAT = lat;
-	}
-	public float getLON(){
-		return BEGIN_LON;
-	}
-	public void setLON(float lon){
-		BEGIN_LON = lon;
+	public void setLon(float l){
+		lon = l;
 	}
 	
 	

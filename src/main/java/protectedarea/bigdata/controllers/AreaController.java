@@ -42,7 +42,6 @@ public class AreaController {
 	
 	@RequestMapping("/home")
 	public String home(Model model) {
-		//model.addAttribute("areaList", areaRepository.findAll());
 		return "home";
 	}
 	@RequestMapping(value = "/search", method=RequestMethod.POST)
@@ -58,27 +57,20 @@ public class AreaController {
 		results.clear();
 		results.add(temp);
 		
-		Collection<Event> events = eventSearchRepository.searchEvent(temp.getSUBLOC(), temp.getLAT(), temp.getLON());
+		Collection<Event> eventsMin = eventSearchRepository.searchEvent("TMIN", temp.getLAT(), temp.getLON());
+		Collection<Event> eventsMax = eventSearchRepository.searchEvent("TMAX", temp.getLAT(), temp.getLON());
+		Collection<Event> eventsSnow = eventSearchRepository.searchEvent("SNOW", temp.getLAT(), temp.getLON());
+		Collection<Event> eventsPrecip = eventSearchRepository.searchEvent("PRECP", temp.getLAT(), temp.getLON());
 		Gson gson = new Gson();
-		String eventList = gson.toJson(events);
-		//System.out.println(eventList);
-		/*JsonObject jObject = new JsonObject();
-		
-	    JsonArray jArray = new JsonArray();
-	    for (Event ev : events)
-	    {
-	         JsonObject json = new JsonObject();
-	         json.add("event_id", new JsonParser().parse(ev.getEVENTID()).getAsJsonObject());
-	         json.add("type", new JsonParser().parse(ev.getTYPE()).getAsJsonObject());
-	         json.add("date", new JsonParser().parse(ev.getDATE()).getAsJsonObject());
-	         json.add("damage_cost", new JsonParser().parse(ev.getDAMAGEPROPERTY()).getAsJsonObject());
-	         json.add("description1", new JsonParser().parse(ev.getEPISODENARRATIVE()).getAsJsonObject());
-	         json.add("description", new JsonParser().parse(ev.getEVENTNARRATIVE()).getAsJsonObject());
-	         jArray.add(json);
-	    }
-	    jObject.add("EventList", jArray);*/
+		String minList = gson.toJson(eventsMin);
+		String maxList = gson.toJson(eventsMax);
+		String snowList = gson.toJson(eventsSnow);
+		String precipList = gson.toJson(eventsPrecip);
 
-		model.addAttribute("eventList", eventList);
+		model.addAttribute("minList", minList);
+		model.addAttribute("maxList", maxList);
+		model.addAttribute("snowList", snowList);
+		model.addAttribute("precipList", precipList);
 		model.addAttribute("areaList", results);
 		model.addAttribute("search", search);
 		return "home";
